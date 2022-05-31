@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory-training</title>
+</head>
+<body>
+    <p><script>
+       
+        let count = 0, length = 3, text, input, output = "";
+
+        alert("Memory training:\n\nMemorize the sequences of digits that" + " appear the same and then enter them." + " Three times three digits will appear first," + " then three times four digits and so on." + " As soon as you enter a sequence of" + " digits incorrectly, the end of the training" + " is reached and a score is given. When" + " you refresh the web page, the training" + " starts from the beginning.");
+
+        do {
+            count++;
+            if(count>3) {
+                length++;
+                count = 1;
+            }
+            text = "";
+            for(let i=1; i<=length; i++)
+                text += Math.floor(Math.random() * 10);
+            alert("Digit sequence: " + text);
+
+            input = prompt("Insert here");
+            output += text + "<br>";
+        }
+        while(input == text);
+
+        let amount = length - 1;
+        if(amount < 3)
+            amount = 0;
+        output += "You were able to remember " + amount + " digits";
+        document.write(output);
+
+    </script></p>
+</body>
+</html>
